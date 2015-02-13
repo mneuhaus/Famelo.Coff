@@ -1,0 +1,17 @@
+-
+  name: 'Home'
+  uriPattern: ''
+  defaults:
+    '@package': Famelo.Coff
+    '@controller': Standard
+    '@action': index
+    '@format': html
+
+-
+  name: Login
+  uriPattern: login
+  defaults:
+    '@format': html
+    '@controller': Login
+    '@action': index
+    '@package': Famelo.Coff

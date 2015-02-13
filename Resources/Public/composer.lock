@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "b1f1709394ab0c885917ada61298c558",
+    "packages": [
+        {
+            "name": "dittertp/gibberish-aes-php",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dittertp/gibberish-aes-php.git",
+                "reference": "2ab3f6416b5e0f8272c3c817b029a65bc3d89b1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dittertp/gibberish-aes-php/zipball/2ab3f6416b5e0f8272c3c817b029a65bc3d89b1b",
+                "reference": "2ab3f6416b5e0f8272c3c817b029a65bc3d89b1b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GibberishAES": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "The MIT License (MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Tcholakov"
+                }
+            ],
+            "description": "AES encryption library",
+            "keywords": [
+                "aes",
+                "encryption"
+            ],
+            "time": "2014-11-15 08:32:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

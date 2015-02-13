@@ -1,0 +1,15 @@
+TYPO3:
+  Flow:
+    security:
+      enable: true
+      authentication:
+        providers:
+          CoffProvider:
+            provider: PersistedUsernamePasswordProvider
+            entryPoint: WebRedirect
+            entryPointOptions:
+              uri: coff/login
+
+    object:
+      excludeClasses:
+       'phpseclib.phpseclib' : ['.*']

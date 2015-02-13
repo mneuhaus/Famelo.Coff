@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <f:base />
+    {namespace e=Flowpack\Expose\ViewHelpers}
+
+    <link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'Components/bootstrap/dist/css/bootstrap.min.css', package: 'Flowpack.Expose')}" />
+    <link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'Styles/Main.css', package: 'Flowpack.Expose')}" />
+
+  </head>
+  <body class="layout-login">
+
+    <div class="container">
+      <div class="typo3-expose-login clearfix">
+        <div class="content">
+          <section class="body">
+            <f:flashMessages />
+                <f:form action="authenticate" method="post">
+                  <fieldset>
+                       <legend></legend>
+                       <div class="row username">
+                               <label id="usernameLabel" for="username" class="placeholder"><span><f:translate package="TYPO3.Flow">Username</f:translate></span></label>
+                               <f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" tabindex="1" />
+                       </div>
+
+                       <div class="row password">
+                               <label id="passwordLabel" for="password" class="placeholder"><span><f:translate package="TYPO3.Flow" id="authentication.password"/></span></label>
+                               <f:form.password  name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" tabindex="2" />
+                       </div>
+
+                       <f:form.submit value="{f:translate(id: 'authentication.login', package: 'TYPO3.Flow')}" />
+                  </fieldset>
+            </f:form>
+            </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

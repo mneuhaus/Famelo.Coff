@@ -1,0 +1,36 @@
+{
+  "name": "basil.js",
+  "version": "0.4.0",
+  "homepage": "https://github.com/Wisembly/basil.js",
+  "authors": [
+    "Mathieu Ghaleb <mathieu@wisembly.com>"
+  ],
+  "description": "The missing Javascript smart persistant layer",
+  "main": "./src/basil.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "localstorage",
+    "persistance",
+    "cookies"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "1eaf6324588672b20895f07f865ac7c360871896"
+  },
+  "_source": "git://github.com/Wisembly/basil.js.git",
+  "_target": "~0.4.0",
+  "_originalSource": "basil.js",
+  "_direct": true
+}

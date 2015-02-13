@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+{namespace e=Flowpack\Expose\ViewHelpers}
+
+<f:section name="Title">
+</f:section>
+
+<f:section name="Content">
+<div class="row">
+	<div class="col-xs-12">
+		<f:link.action action="new" class="btn btn-primary pull-righ">
+			New Page
+		</f:link.action>
+	</div>
+</div>
+
+<ul class="list-group">
+	<f:for each="{pages}" as="page">
+		<li class="list-group-item">
+			<f:link.action action="show" arguments="{page: page}">
+				{page.name}
+			</f:link.action>
+		</li>
+	</f:for>
+</ul>
+</f:section>

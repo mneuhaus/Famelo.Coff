@@ -1,0 +1,5 @@
+{
+    "require": {
+        "dittertp/gibberish-aes-php": "~1.1"
+    }
+}

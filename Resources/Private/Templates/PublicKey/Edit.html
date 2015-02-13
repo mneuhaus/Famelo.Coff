@@ -1,0 +1,66 @@
+<f:layout name="{layout}" />
+{namespace e=Flowpack\Expose\ViewHelpers}
+
+<f:section name="Title">
+</f:section>
+
+<f:section name="Content">
+	<f:form action="update" object="{entity}" objectName="entity" class="form-horizontal form-private-key">
+		<e:form.field property="publicKey" class="form-control form-control-public-key" control="Textarea" />
+
+		<e:form.field name="privateKey" class="form-control form-control-private-key" control="Textarea" />
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button class="btn btn-default action-generate">
+					Generate Keypair
+				</button>
+				<button class="btn btn-default action-test">
+					Test Keypair
+				</button>
+				<f:form.submit value="Save" class="btn btn-default" />
+			</div>
+		</div>
+	</f:form>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+
+		// // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
+		// var encrypted = publicKey.encrypt(bytes);
+
+		// // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
+		// var decrypted = privateKey.decrypt(encrypted);
+		$('.action-test').click(function(e){
+			var pki = forge.pki;
+
+			var privateKey = pki.decryptRsaPrivateKey($('.form-control-private-key').val(), 'password');
+			var publicKey = pki.setRsaPublicKey(privateKey.n, privateKey.e);
+
+			console.log(privateKey, publicKey);
+			var encrypted = publicKey.encrypt('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.', 'RSA-OAEP');
+			console.log(forge.util.encode64(encrypted));
+			var decrypted = privateKey.decrypt(encrypted, 'RSA-OAEP');
+			console.log(decrypted);
+
+			e.preventDefault();
+		});
+
+		$('.action-generate').click(function(e){
+			$('.form-control-public-key').val('generating...');
+			$('.form-control-privat-key').val('generating...');
+
+			var rsa = forge.pki.rsa;
+			var keypair = rsa.generateKeyPair({bits: 2048, e: 0x10001});
+
+			var publicKey = forge.pki.publicKeyToPem(keypair.publicKey)
+			$('.form-control-public-key').val(publicKey);
+
+			var privateKey = forge.pki.encryptRsaPrivateKey(keypair.privateKey, 'password');
+			$('.form-control-private-key').val(privateKey);
+			e.preventDefault();
+		});
+	})
+	</script>
+</f:section>

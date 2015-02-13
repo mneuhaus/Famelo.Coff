@@ -1,0 +1,8 @@
+{namespace e=Flowpack\Expose\ViewHelpers}
+
+<div class="part" data-uri="{f:uri.action(action: 'savePart', arguments: {part: part})}"  data-data="{part.data}" data-keypair="{part.userAccess.keypair}">
+	<f:render partial="Parts/{part.type -> e:format.ucfirst()}" arguments="{part: part}" />
+	<f:link.action action="removePart" arguments="{part: part}">
+		remove
+	</f:link.action>
+</div>

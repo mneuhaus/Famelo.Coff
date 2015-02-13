@@ -1,0 +1,14 @@
+{
+  "name": "gibberish-aes",
+  "homepage": "https://github.com/mdp/gibberish-aes",
+  "_release": "06921b5218",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "06921b5218f2987d2fc4c28797af2b5e7d8ad413"
+  },
+  "_source": "git://github.com/mdp/gibberish-aes.git",
+  "_target": "*",
+  "_originalSource": "gibberish-aes",
+  "_direct": true
+}

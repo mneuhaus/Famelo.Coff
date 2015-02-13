@@ -1,0 +1,30 @@
+<f:layout name="Default" />
+{namespace e=Flowpack\Expose\ViewHelpers}
+
+<f:section name="Title">
+</f:section>
+
+<f:section name="Content">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="btn-group pull-right">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			</button>
+		  	<ul class="dropdown-menu" role="menu">
+		    	<li>
+		    		<a href="#" data-add="textblock" data-uri="{f:uri.action(action: 'createPart', arguments: {page: page})}">Textblock</a>
+		    		<a href="#" data-add="zugangsdaten" data-uri="{f:uri.action(action: 'createPart', arguments: {page: page})}">Zugangsdaten</a>
+		    	</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="parts">
+<f:for each="{page.parts}" as="part">
+	<f:render partial="Part" arguments="{part: part}" />
+</f:for>
+</div>
+
+</f:section>
